@@ -10,6 +10,20 @@
 <body>
   <h1>rein-api</h1>
   <script>
+    const r = new Rein({
+      baseUrl: 'http://www.foo.com',
+      prefix: '/v1',
+    });
+    r.request({
+      method: 'POST',
+      url: '/bar'
+    })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(e => {
+      console.warn(e);
+    })
   </script>
 </body>
 </html>

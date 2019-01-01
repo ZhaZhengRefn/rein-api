@@ -9,28 +9,28 @@ const rollup = require('rollup')
 const version = process.env.VERSION || require('../package.json').version
 
 const prodConf = {
-  inputOptions: {
-    input: 'src/index.ts',
-    plugins: [
-      // replace({
-      //   [`process.env.NODE_ENV`]: `'${process.env.NODE_ENV}'`,
-      //   __VERSION__: version,
-      // }),      
-      rollupTs({
-        typescript,
-      }),
-      nodeResolve(),
-      commonjs({
-        include: 'node_modules/weixin-js-sdk/**',
-      }),      
-      minify(),
-    ],    
-  },
-  outputOptions: {
-    name: 'Rein',
-    file: './dist/index.js',
-    format: 'umd',    
-  },
+	inputOptions: {
+		input: 'src/Rein.ts',
+		plugins: [
+			// replace({
+			//   [`process.env.NODE_ENV`]: `'${process.env.NODE_ENV}'`,
+			//   __VERSION__: version,
+			// }),      
+			rollupTs({
+				typescript
+			}),
+			nodeResolve(),
+			commonjs({
+				include: 'node_modules/lodash.merge/**',
+			}),
+			minify(),
+		],
+	},
+	outputOptions: {
+		name: 'Rein',
+		file: './dist/Rein.js',
+		format: 'umd',
+	},
 }
 
 module.exports = prodConf

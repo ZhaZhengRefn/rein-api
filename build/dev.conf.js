@@ -10,35 +10,35 @@ const rollup = require('rollup')
 const version = process.env.VERSION || require('../package.json').version
 
 const devConf = {
-  inputOptions: {
-    input: 'src/index.ts',
-    plugins: [
-      rollupTs({
-        typescript,
-      }),
-      replace({
-        [`process.env.NODE_ENV`]: `'${process.env.NODE_ENV}'`,
-        __VERSION__: version,
-      }),      
-      nodeResolve(),
-      commonjs({
-        // include: 'node_modules/foobar-js/**',
-      }),       
-      serve({
-        contentBase: './example/',
-        port: 8789,
-        open: true,
-        historyApiFallback: true,
-      }),    
-      livereload({
-        watch: './example/bundle.js'
-      })
-    ],
-  },
-  outputOptions: {
-    name: 'Rein',
-    file: './example/bundle.js',
-    format: 'iife',    
-  },
+	inputOptions: {
+		input: 'src/Rein.ts',
+		plugins: [
+			rollupTs({
+				typescript,
+			}),
+			replace({
+				[`process.env.NODE_ENV`]: `'${process.env.NODE_ENV}'`,
+				__VERSION__: version,
+			}),
+			nodeResolve(),
+			commonjs({
+				// include: 'node_modules/foobar-js/**',
+			}),
+			serve({
+				contentBase: './example/',
+				port: 8789,
+				open: true,
+				historyApiFallback: true,
+			}),
+			livereload({
+				watch: './example/bundle.js'
+			})
+		],
+	},
+	outputOptions: {
+		name: 'Rein',
+		file: './example/bundle.js',
+		format: 'iife',
+	},
 }
 module.exports = devConf
