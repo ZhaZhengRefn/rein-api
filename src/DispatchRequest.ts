@@ -149,8 +149,7 @@ export default class DispatchRequest {
         (res: FetchResponse) => {
           // 转换response
           utils.transformData(res.data, res.headers, transformResponse!);
-          const data = utils.merge(Object.create(null), res.data);
-          return Promise.resolve(data);
+          return Promise.resolve(res.data);
         },
         (e: FetchError) => {
           // 转换response
