@@ -1,6 +1,21 @@
-import { DispatchConfig, DispatchOption } from './types/dispatch-request';
-import { BaseAdaptor } from './types/adaptor-fetch';
+export {
+  DispatchConfig,
+  DispatchOption,
+  FetchHeaders
+} from './types/dispatch-request';
+export { ApiOption, ApiOptionMap, ApiModule } from './types/api';
+export {
+  Methods,
+  FetchResponse,
+  FetchError,
+  RequestConfig,
+  AdaptorConfig,
+  DefaultInit,
+  BaseAdaptor
+} from './types/adaptor-fetch';
 
+import { BaseAdaptor } from './types/adaptor-fetch';
+import { DispatchOption, DispatchConfig } from './types/dispatch-request';
 import AdaptorFetch from './AdaptorFetch';
 import InterceptorManager from './InterceptorManager';
 import DispatchRequest from './DispatchRequest';
