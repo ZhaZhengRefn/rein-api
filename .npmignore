@@ -1,0 +1,8 @@
+build/
+script/
+node_modules/
+example/
+
+.commitlintrc.js
+.editorconfig
+.prettierrc
