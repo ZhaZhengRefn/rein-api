@@ -10,9 +10,7 @@ import {
   DispatchOption,
   FetchHeaders
 } from './types/dispatch-request';
-import * as utils from './utils.ts';
-import _merge from 'lodash.merge';
-// const _merge = require('lodash.merge');
+import * as utils from './utils';
 
 const DEFAULTS: {
   dispatchConfig: DispatchConfig;
@@ -78,7 +76,7 @@ export default class DispatchRequest {
 
   constructor(config: DispatchConfig, adaptor: BaseAdaptor) {
     this.config = { ...DEFAULTS.dispatchConfig, ...config };
-    this.config.headers = _merge(
+    this.config.headers = utils.merge(
       {},
       config.headers || {},
       DEFAULTS.dispatchConfig.headers
@@ -89,7 +87,7 @@ export default class DispatchRequest {
   }
 
   public dispatch(options: DispatchOption): Promise<object> {
-    options = _merge({}, DEFAULTS.dispatchOption, options);
+    options = utils.merge({}, DEFAULTS.dispatchOption, options);
     this.debug &&
       console.info(
         `[rein-api]: The option of DispatchRequest.dispatch is `,
@@ -151,7 +149,7 @@ export default class DispatchRequest {
         (res: FetchResponse) => {
           // 转换response
           utils.transformData(res.data, res.headers, transformResponse!);
-          const data = _merge(Object.create(null), res.data);
+          const data = utils.merge(Object.create(null), res.data);
           return Promise.resolve(data);
         },
         (e: FetchError) => {

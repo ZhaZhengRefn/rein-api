@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
-    "build": "NODE_ENV=production node ./scripts/build.js",
-    "compile": "tsc -w --noEmit",
     "dev": "NODE_ENV=development node ./scripts/build.js",
     "lint": "tslint -c tslint.json -t codeFrame \"src/**/*.ts\"",
     "deploy": "node ./scripts/deploy.js",
+    "clean": "rimraf ./lib ./dist",
+    "build:ts": "tsc",
+    "build:main": "NODE_ENV=production node ./scripts/build.js",
+    "build": "npm run build:ts && npm run build:main",
     "gc": "git-cz"
   },
   "repository": {
     "type": "git"
   },
-  "author": "",
+  "author": "zheng_refn",
   "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
@@ -32,6 +35,7 @@
     "jest-worker": "^23.2.0",
     "ora": "^3.0.0",
     "prettier": "^1.15.3",
+    "rimraf": "^2.6.2",
     "rollup": "^0.63.4",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-babel-minify": "^6.0.0",
@@ -40,7 +44,6 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-serve": "^0.6.0",
-    "rollup-plugin-typescript": "^1.0.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.1.3",

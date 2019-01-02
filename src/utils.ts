@@ -181,3 +181,24 @@ export function parseData(data: any) {
   }
   return data;
 }
+
+export function merge(...args: any[]): any {
+  const result = {};
+  function assignValue(val, key) {
+    if (typeof val === 'object') {
+      if (typeof result[key] === 'object') {
+        result[key] = merge(result[key], val);
+      } else {
+        result[key] = merge({}, val);
+      }
+    } else {
+      result[key] = val;
+    }
+  }
+  args.forEach(source => {
+    Object.keys(source).forEach(k => {
+      assignValue(source[k], k);
+    });
+  });
+  return result;
+}
