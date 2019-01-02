@@ -98,6 +98,10 @@ instance.request({
 
 ## FAQ
 
+### Any best practices ?
+`rein` 采用 `typescript` 来开发。强烈建议您使用 `typescript` ！我们还导出了相关的类型注解，文档不能覆盖的地方，类型注解都帮你解决了。
+> 至于如何集成，后续我们会出一篇文章做介绍。
+
 ### Is it production ready ?
 当然，`ForChange Python 小课`日均 200 * 700 订单的报名系统基于这款请求库.
 
