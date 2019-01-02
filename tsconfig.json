@@ -12,7 +12,10 @@
     ],
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
-    "declaration": true
+    "removeComments": true,
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "lib"
   },
   "include": [
     "src/**/*.ts"
