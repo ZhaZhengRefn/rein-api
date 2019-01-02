@@ -102,6 +102,8 @@ instance.request({
 当然，`ForChange Python 小课`日均 200 * 700 订单的报名系统基于这款请求库.
 
 ### Why is it called rein ?
+<img src="https://user-images.githubusercontent.com/16488686/50585448-f7bdfd80-0eaf-11e9-9585-2839837268d8.jpg" height="200" />
+
 -- From OverWatch[http://ow.blizzard.cn/heroes/reinhardt]
 
 ## License
