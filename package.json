@@ -1,9 +1,9 @@
 {
   "name": "rein-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A HTTP client for browser. Inspired by axios.",
   "main": "./dist/index.js",
-  "typings": "lib/index.d.ts",
+  "typings": "./lib/index.d.ts",
   "scripts": {
     "dev": "NODE_ENV=development node ./scripts/build.js",
     "lint": "tslint -c tslint.json -t codeFrame \"src/**/*.ts\"",
