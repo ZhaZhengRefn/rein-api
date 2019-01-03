@@ -1,4 +1,4 @@
-import { FetchHeaders } from './dispatch-request';
+import { FetchHeaders, DispatchOption } from './dispatch-request';
 
 export type Methods =
   | 'GET'
@@ -51,6 +51,9 @@ export interface FetchResponse {
   config: RequestConfig;
   init: RequestInit;
 }
+export type ExtendedFetchResponse = {
+  options: DispatchOption;
+} & FetchResponse;
 // 响应错误的结构
 export interface FetchError extends Error {
   config: RequestConfig;
@@ -81,6 +84,9 @@ export interface FetchError extends Error {
     config: RequestConfig;
   };
 }
+export type ExtendedFetchError = {
+  options: DispatchOption;
+} & FetchError;
 
 export abstract class BaseAdaptor {
   constructor() {}
