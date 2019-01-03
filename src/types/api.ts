@@ -9,7 +9,7 @@ export interface ApiOption {
   url: string;
   restful?: boolean;
   prefix?: string;
-  meta?: Record<string, string>;
+  meta?: Record<string, string | number | boolean>;
 }
 export interface ApiOptionMap {
   [apiKey: string]: ApiOption;

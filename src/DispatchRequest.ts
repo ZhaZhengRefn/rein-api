@@ -1,4 +1,6 @@
 import {
+  ExtendedFetchResponse,
+  ExtendedFetchError,
   FetchResponse,
   FetchError,
   MethodNames,
@@ -71,8 +73,8 @@ const HEADERS_TO_DELETE = [
 
 export default class DispatchRequest {
   private config: DispatchConfig;
-  private adaptor: BaseAdaptor;
-  private debug: boolean;
+  public adaptor: BaseAdaptor;
+  public debug: boolean;
 
   constructor(config: DispatchConfig, adaptor: BaseAdaptor) {
     this.config = { ...DEFAULTS.dispatchConfig, ...config };
@@ -86,7 +88,7 @@ export default class DispatchRequest {
     this.dispatch = this.dispatch.bind(this);
   }
 
-  public dispatch(options: DispatchOption): Promise<object> {
+  public dispatch(options: DispatchOption): Promise<ExtendedFetchResponse> {
     options = utils.merge({}, DEFAULTS.dispatchOption, options);
     this.debug &&
       console.info(
@@ -149,7 +151,8 @@ export default class DispatchRequest {
         (res: FetchResponse) => {
           // 转换response
           utils.transformData(res.data, res.headers, transformResponse!);
-          return Promise.resolve(res.data);
+          const extended: ExtendedFetchResponse = { ...res, options };
+          return Promise.resolve(extended);
         },
         (e: FetchError) => {
           // 转换response
@@ -158,7 +161,8 @@ export default class DispatchRequest {
             e.response.headers,
             transformResponse!
           );
-          return Promise.reject(e);
+          const extended: ExtendedFetchError = { ...e, options };
+          return Promise.reject(extended);
         }
       );
   }

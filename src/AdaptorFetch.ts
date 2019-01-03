@@ -96,7 +96,7 @@ const mergeInit = (function() {
 export default class AdaptorFetch extends BaseAdaptor {
   private config: AdaptorConfig;
   private defaultInit: DefaultInit;
-  private debug: boolean;
+  public debug: boolean;
 
   constructor(config: AdaptorConfig = {}, defaults: DefaultInit = {}) {
     super();

@@ -6,6 +6,8 @@ export {
 export { ApiOption, ApiOptionMap, ApiModule } from './types/api';
 export {
   Methods,
+  ExtendedFetchResponse,
+  ExtendedFetchError,
   FetchResponse,
   FetchError,
   RequestConfig,
@@ -21,13 +23,13 @@ import InterceptorManager from './InterceptorManager';
 import DispatchRequest from './DispatchRequest';
 
 export default class Rein {
-  private adaptor: BaseAdaptor;
-  private interceptors: {
+  private dispatcher: DispatchRequest;
+  public adaptor: BaseAdaptor;
+  public interceptors: {
     request: InterceptorManager;
     response: InterceptorManager;
   };
-  private dispatcher: DispatchRequest;
-  private debug: boolean;
+  public debug: boolean;
   constructor(config: DispatchConfig, adaptor?: BaseAdaptor) {
     this.debug = config.debug || false;
     this.debug && console.info(`[rein-api]: The config of Rein is `, config);
