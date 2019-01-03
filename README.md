@@ -1,20 +1,23 @@
 # rein
 
+[![NPM version](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/rein-api)
+[![NPM downloads](https://img.shields.io/npm/dw/localeval.svg)](https://www.npmjs.com/package/rein-api)
+
 基于 `fetch` 的 `http` 客户端请求工具，适用于浏览器。(Inspired by [axios](https://github.com/axios/axios) and [apiz](https://github.com/ta7sudan/apiz-ng))
 
 ---
 
-## Usage
+## 用法
 
-### Install
+### 安装
 ```sh 
 yarn add rein-api
 ```
 
-### Example
+### 例子
 
+#### 初始化
 ```js
-// 初始化
 import Rein from 'rein-api';
 
 // 举例，获取 token
@@ -58,8 +61,8 @@ const instance = new Rein({
 })
 ```
 
+#### 发送请求
 ```js
-// 发送请求
 instance.request({
   // 方法名，默认为 'get'
   method: 'get',
@@ -96,19 +99,19 @@ instance.request({
 })
 ```
 
-## FAQ
+## 问答
 
-### Any best practices ?
+### 可以推荐点最佳实践吗？
 `rein` 采用 `typescript` 来开发。强烈建议您使用 `typescript` ！我们还导出了相关的类型注解，文档不能覆盖的地方，类型注解都帮你解决了。
 > 至于如何集成，后续我们会出一篇文章做介绍。
 
-### Is it production ready ?
+### 生产环境能不能用？
 当然，`ForChange Python 小课`日均 200 * 700 订单的报名系统基于这款请求库.
 
-### Why is it called rein ?
+### 为什么叫 `rein` ？
 <img src="https://user-images.githubusercontent.com/16488686/50585448-f7bdfd80-0eaf-11e9-9585-2839837268d8.jpg" height="200" />
-
--- From OverWatch[http://ow.blizzard.cn/heroes/reinhardt]
+> "I've been called. I have to answer, always."
+-- From (OverWatch)[http://ow.blizzard.cn/heroes/reinhardt]
 
 ## License
 
