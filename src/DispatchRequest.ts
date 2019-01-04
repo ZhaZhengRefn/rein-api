@@ -102,15 +102,8 @@ export default class DispatchRequest {
       transformRequest,
       transformResponse
     } = this.config;
-    const {
-      method,
-      resource,
-      data,
-      url,
-      restful,
-      prefix = '/',
-      params
-    } = options;
+    const { method, resource, url, restful, prefix = '/', params } = options;
+    let data = options.data;
 
     // 拼接 url
     let absoluteUrl = utils.buildUrl(
@@ -125,7 +118,7 @@ export default class DispatchRequest {
     absoluteUrl = utils.addQuery(absoluteUrl, params!);
 
     // 转换 data
-    utils.transformData(data, headers, transformRequest!);
+    data = utils.transformData(data, headers, transformRequest!);
 
     // 序列化 data
     const parsedData = utils.parseData(data);
@@ -150,13 +143,17 @@ export default class DispatchRequest {
       .then(
         (res: FetchResponse) => {
           // 转换response
-          utils.transformData(res.data, res.headers, transformResponse!);
+          res.data = utils.transformData(
+            res.data,
+            res.headers,
+            transformResponse!
+          );
           const extended: ExtendedFetchResponse = { ...res, options };
           return Promise.resolve(extended);
         },
         (e: FetchError) => {
           // 转换response
-          utils.transformData(
+          e.response.data = utils.transformData(
             e.response.data,
             e.response.headers,
             transformResponse!
