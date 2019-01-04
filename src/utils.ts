@@ -131,9 +131,10 @@ export function transformData(
 ) {
   fns.forEach(fn => {
     if (typeof fn === 'function') {
-      fn.call(this, data, headers);
+      data = fn.call(this, data, headers);
     }
   });
+  return data;
 }
 
 function paramsSerializer(data: object): string {
