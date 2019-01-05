@@ -6,6 +6,7 @@ export {
 export { ApiOption, ApiOptionMap, ApiModule } from './types/api';
 export {
   Methods,
+  LowerCaseMethods,
   ExtendedFetchResponse,
   ExtendedFetchError,
   FetchResponse,
