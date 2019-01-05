@@ -8,6 +8,14 @@ export type Methods =
   | 'POST'
   | 'PUT'
   | 'PATCH';
+export type LowerCaseMethods =
+  | 'get'
+  | 'head'
+  | 'delete'
+  | 'options'
+  | 'post'
+  | 'put'
+  | 'patch';
 export enum MethodNames {
   'GET' = 'GET',
   'HEAD' = 'HEAD',
