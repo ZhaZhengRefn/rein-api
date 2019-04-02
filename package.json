@@ -20,6 +20,7 @@
   "author": "zheng_refn",
   "license": "MIT",
   "devDependencies": {
+    "@byted/guardian": "0.0.1-alpha.2",
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
     "babel": "^6.23.0",
